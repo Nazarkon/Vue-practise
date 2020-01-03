@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Note App</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ title }}</h1>
+        <div class="notes">
+            <div class="note" v-for="(note, index) in notes" :key="index">
+              <div class="note--header">
+                  <p>{{note.title}}</p>
+              </div>
+              <div class="note--body">
+                  <p>{{ note.descrition }}</p>
+                  <span>{{ note.date }}</span>
+              </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                title: 'Notes App',
+                notes: [{
+                        title: 'First note',
+                        descrition: 'Description for first note',
+                        date: new Date(Date.now()).toLocaleString()
+                    },
+                    {
+                        title: 'Second note',
+                        descrition: 'Description for Second note',
+                        date: new Date(Date.now()).toLocaleString()
+                    },
+                    {
+                        title: 'Third note',
+                        descrition: 'Description for Third note',
+                        date: new Date(Date.now()).toLocaleString()
+                    }
+                ]
+            },
+        })
+    </script>
+</body>
+
+</html>
