@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+       <h1>{{title}}</h1>
+       <button @click="getContent">Get content</button>
+       <div v-if="showContent">
+         <h1>Users:</h1>
+         <li v-for="(user , index) in users" :key="user.id">
+            <p>{{user.id}} - {{user.name}}</p>
+            <span>{{ user.email }}</span>
+            <p>{{user.age}}</p>
+         </li>
+       </div>
+    </div>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                title: 'v-if',
+                showContent:false,
+                // user:{
+                // name: "Jack",
+                // email: 'unfo@tocode.ru'
+                // },
+                users: [
+                    {id:1 ,name: 'jack', email: 'mail.ru', age: 22},
+                    {id:2,name: 'alex', email: 'gmail.ru', age: 24},
+                    {id:3,name: 'john', email: 'mrrfrgfr.ru', age: 30},
+                ]
+            },
+            methods: {
+                getContent() {
+                    this.showContent = ! this.showContent
+                    // console.log(this.user.name)
+                    console.log(this.users)
+                }
+            },
+        })
+    </script>
+</body>
+</html>
