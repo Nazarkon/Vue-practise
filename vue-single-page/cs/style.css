@@ -16,3 +16,12 @@ p,h1{
     flex-wrap: wrap;
     justify-content: space-around;
 }
+.color-box{
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+}
+.activeTab{
+    color:green;
+    text-decoration: underline;
+}
