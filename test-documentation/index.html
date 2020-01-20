@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test documentation</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>Hello, {{message}}</h1>
+    <button v-on:keyup.enter="alertMess">Click me!</button>
+    <button-counter></button-counter>
+</div>
+<script>
+    let app = new Vue({
+        el:"#app",
+        data: {
+            message:'Nazar'
+        },
+        methods:{
+            alertMess: function (){
+                return console.log("ENTER PRESS");
+            }
+        }
+    })
+
+    Vue.component('button-counter',{
+        data: function () {
+            return {
+                count:0
+            }
+
+        },
+        template: '<button v-on:click="count++">Счётчик кликов — {{ count }}</button>'
+    })
+</script>
+</body>
+</html>
