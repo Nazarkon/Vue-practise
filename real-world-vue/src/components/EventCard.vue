@@ -1,8 +1,5 @@
 <template>
-  <router-link
-    class="event-link"
-    :to="{ name: 'event-show', params: { id: event.id } }"
-  >
+  <router-link class="event-link" :to="{ name: 'event-show', params: { id: event.id } }">
     <div class="event-card -shadow">
       <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
       <h4 class="title">{{ event.title }}</h4>
@@ -14,23 +11,13 @@
 <script>
 export default {
   props: {
-    event: {
-      type: Object
-    }
+    event: Object
   }
-};
+}
 </script>
 
 <style scoped>
-.title {
-  padding-bottom: 10px;
-  padding-top: 10px;
-}
 .event-card {
-  width: 400px;
-  text-align: left;
-  margin-left: auto;
-  margin-right: auto;
   padding: 20px;
   margin-bottom: 24px;
   transition: all 0.2s linear;
