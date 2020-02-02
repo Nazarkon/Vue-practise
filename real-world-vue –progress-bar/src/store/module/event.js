@@ -3,7 +3,8 @@ import EventService from "@/services/EventService.js";
 export const state = {
   events: [],
   eventsTotal: 0,
-  event: {}
+  event: {},
+  perPage: 3
 };
 export const getters = {
   getEventById: state => id => {
@@ -42,18 +43,10 @@ export const actions = {
         throw error;
       });
   },
-  fetchEvents({ commit, dispatch }, { perPage, page }) {
-    EventService.getEvents(perPage, page)
-      .then(response => {
-        commit("SET_EVENTS", response.data);
-      })
-      .catch(error => {
-        const notification = {
-          type: "error",
-          message: "There was a problem fetching events:" + error.message
-        };
-        dispatch("notification/add", notification, { root: true });
-      });
+  fetchEvents({ commit, state }, { page }) {
+    EventService.getEvents(state.perPage, page).then(response => {
+      commit("SET_EVENTS", response.data);
+    });
   },
   fetchEvent({ commit, getters }, id) {
     var event = getters.getEventById(id);
